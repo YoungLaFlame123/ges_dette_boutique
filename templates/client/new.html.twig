@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <main class="p-4">
+        <h1 class="text-2xl font-bold mb-4">Créer un Client</h1>
+        {{ form_start(form) }}
+            <div class="flex flex-wrap items-center gap-6">
+                {{ form_row(form.surname, { 'attr': {'class': 'mt-2 p-2 border rounded'} }) }}
+                {{ form_row(form.telephone, { 'attr': {'class': 'mt-2 p-2 border rounded'} }) }}
+                {{ form_row(form.adresse, { 'attr': {'class': 'mt-2 p-2 border rounded'} }) }}
+                {{ form_row(form.createAt, { 'attr': {'class': 'mt-2 p-2 border rounded'} }) }}
+                {{ form_row(form.updateAt, { 'attr': {'class': 'mt-2 p-2 border rounded'} }) }}
+            </div>
+        {{ form_end(form) }}
+
+        <!-- Nouvelle section pour créer un utilisateur -->
+        <div class="flex items-center mt-6">
+            <input type="checkbox" id="createUser" class="mr-2" onchange="toggleUserForm()">
+            <label for="createUser" class="text-lg">Créer utilisateur</label>
+        </div>
+
+        <!-- Formulaire pour créer un utilisateur -->
+        <div id="createUserForm" class="mt-6 hidden">
+            <h2 class="text-xl font-bold mb-4">Formulaire de Création d'Utilisateur</h2>
+            <form>
+                <div class="flex flex-wrap items-center gap-6">
+                    <input type="text" placeholder="Nom" class="mt-2 p-2 border rounded">
+                    <input type="email" placeholder="Email" class="mt-2 p-2 border rounded">
+                    <input type="password" placeholder="Mot de passe" class="mt-2 p-2 border rounded">
+                    <input type="text" placeholder="Téléphone" class="mt-2 p-2 border rounded">
+                </div>
+                <div class="mt-4">
+                    <button type="submit" class="inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-blue-600 text-white font-medium hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        Créer Utilisateur
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script src="{{ asset('js/script.js') }}"></script>
+    <script>
+        function toggleUserForm() {
+            const createUserForm = document.getElementById('createUserForm');
+            const checkbox = document.getElementById('createUser');
+            if (checkbox.checked) {
+                createUserForm.classList.remove('hidden'); // Afficher le formulaire
+            } else {
+                createUserForm.classList.add('hidden'); // Masquer le formulaire
+            }
+        }
+    </script>
+{% endblock %}

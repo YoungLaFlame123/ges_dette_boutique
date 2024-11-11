@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+{% block title %}Hello UserController!{% endblock %}
+
+{% block body %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Liste des Utilisateurs</title>
+</head>
+<body>
+    <h1>Liste des Utilisateurs</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nom d'utilisateur</th>
+                <th>Date de création</th>
+                <th>Bloqué</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in u{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Clients{% endblock %}
+
+{% block body %}
+    <main class="p-4">
+        <h1 class="text-2xl font-bold mb-4">Liste des Clients</h1>
+
+        {% if clients is empty %}
+            <p>Aucun client trouvé.</p>
+        {% else %}
+            <table class="min-w-full bg-white border border-gray-300">
+                <thead>
+                    <tr>
+                        <th class="py-2 px-4 border-b">Nom</th>
+                        <th class="py-2 px-4 border-b">Téléphone</th>
+                        <th class="py-2 px-4 border-b">Adresse</th>
+                        <th class="py-2 px-4 border-b">Créé le</th>
+                        <th class="py-2 px-4 border-b">Mis à jour le</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for client in clients %}
+                        <tr>
+                            <td class="py-2 px-4 border-b">{{ client.surname }}</td>
+                            <td class="py-2 px-4 border-b">{{ client.telephone }}</td>
+                            <td class="py-2 px-4 border-b">{{ client.adresse }}</td>
+                            <td class="py-2 px-4 border-b">{{ client.createAt|date('Y-m-d H:i:s') }}</td>
+                            <td class="py-2 px-4 border-b">{{ client.updateAt|date('Y-m-d H:i:s') }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>    
+        {% endif %}
+    </main>
+
+
+
+
+
+    
+{% endblock %}sers %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.login }}</td>
+                <td>{{ user.createAt|date('Y-m-d H:i:s') }}</td>
+                <td>{{ user.isBlocked ? 'Oui' : 'Non' }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="/user/create">Ajouter un nouvel utilisateur</a>
+</body>
+</html>
+{% endblock %}

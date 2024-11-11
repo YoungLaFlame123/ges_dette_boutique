@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Clients{% endblock %}
+
+{% block body %}
+    <main class="p-4">
+        <h1 class="text-2xl font-bold mb-4">Liste des Clients</h1>
+
+        {% if clients is empty %}
+            <p>Aucun client trouvé.</p>
+        {% else %}
+            <table class="min-w-full bg-white border border-gray-300">
+                <thead>
+                    <tr>
+                        <th class="py-2 px-4 border-b">Nom</th>
+                        <th class="py-2 px-4 border-b">Téléphone</th>
+                        <th class="py-2 px-4 border-b">Adresse</th>
+                        <th class="py-2 px-4 border-b">Créé le</th>
+                        <th class="py-2 px-4 border-b">Mis à jour le</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for client in clients %}
+                        <tr>
+                            <td class="py-2 px-4 border-b">{{ client.surname }}</td>
+                            <td class="py-2 px-4 border-b">{{ client.telephone }}</td>
+                            <td class="py-2 px-4 border-b">{{ client.adresse }}</td>
+                            <td class="py-2 px-4 border-b">{{ client.createAt|date('Y-m-d H:i:s') }}</td>
+                            <td class="py-2 px-4 border-b">{{ client.updateAt|date('Y-m-d H:i:s') }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>    
+        {% endif %}
+    </main>
+
+
+
+
+
+    
+{% endblock %}

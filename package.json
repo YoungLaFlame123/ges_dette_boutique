@@ -1,0 +1,22 @@
+{
+  "dependencies": {
+    "@hotwired/stimulus": "^3.2.2",
+    "@hotwired/stimulus-webpack-helpers": "^1.0.1",
+    "autoprefixer": "^10.4.20",
+    "core-js": "^3.38.1",
+    "tailwindcss": "^3.4.14"
+  },
+  "devDependencies": {
+    "@symfony/webpack-encore": "^5.0.1",
+    "postcss": "^8.4.47",
+    "postcss-cli": "^11.0.0",
+    "postcss-loader": "^8.1.1",
+    "webpack-notifier": "^1.15.0"
+  },
+  "scripts": {
+    "dev": "encore dev",
+    "watch": "encore dev --watch",
+    "build": "encore production",
+    "build:css": "webpack --config webpack.config.js"
+  }
+}
